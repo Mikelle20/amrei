@@ -21,16 +21,16 @@ function Navbar(props) {
                             <Link className="nav-link" to="/Products"><p>Products</p></Link>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#"><p>Services</p></a>
+                        <a className="nav-link" href="/"><p>Services</p></a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#"><p>Portfolio</p></a>
+                        <a className="nav-link" href="/"><p>Portfolio</p></a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#"><p>Blog</p></a>
+                        <a className="nav-link" href="/"><p>Blog</p></a>
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link" href="#"><p>Contact</p></a>
+                        <a className="nav-link" href="/"><p>Contact</p></a>
                         </li>
                         <li>
                             <div 
