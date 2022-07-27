@@ -1,5 +1,4 @@
-let Products = []
-export default Products = [
+export const productsData = [
     {
       id: 1,
       title: "Strawberry Shortcake Camera",

@@ -1,10 +1,10 @@
 import React from 'react'
 import Product from '../Components/Product'
-import ProductsData from '../DummyData/ProductsData'
+import { productsData } from '../DummyData/ProductsData'
 
 function Products(props) {
   const accessToggled = props.accessColors ? "access-container" : ""
-  const productElements = ProductsData.map(product =>{
+  const productElements = productsData.map(product =>{
     return(
       <Product
         key = {product.id}
