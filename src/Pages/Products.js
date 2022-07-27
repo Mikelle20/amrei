@@ -4,7 +4,7 @@ import ProductsData from '../DummyData/ProductsData'
 
 function Products(props) {
   const accessToggled = props.accessColors ? "access-container" : ""
-  let productElements = ProductsData.map(product =>{
+  const productElements = ProductsData.map(product =>{
     return(
       <Product
         key = {product.id}
