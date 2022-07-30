@@ -8,7 +8,7 @@ function Navbar(props) {
     <div>
         <nav className={"navbar center navbar-expand-lg navbar-light bg-light" + colorsAccessed}>
             <div className="container-fluid">
-                <a className="navbar-brand" href="/"><p>{"amrei " + sunMoon}</p></a>
+                <a className="navbar-brand" href="/"><p className='navTitle'>{"amrei " + sunMoon}</p></a>
                 <button className="navbar-toggler" onClick={props.toggleNav} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,18 +19,6 @@ function Navbar(props) {
                         </li>
                         <li className='nav-item'>
                             <Link className="nav-link" to="/Products"><p>Products</p></Link>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="/"><p>Services</p></a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="/"><p>Portfolio</p></a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="/"><p>Blog</p></a>
-                        </li>
-                        <li className="nav-item">
-                        <a className="nav-link" href="/"><p>Contact</p></a>
                         </li>
                         <li>
                             <div 
