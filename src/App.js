@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Products from './Pages/Products';
 import React from "react"
 import Home from './Pages/Home';
+import Product from './Pages/Product';
 
 function App() {
   const [accessColors, setAccessColors] = React.useState(false)
@@ -37,6 +38,7 @@ function App() {
       <Routes>
           <Route path='/products' element={<Products accessColors={accessColors} navToggled={navToggled}/>} />
           <Route path='/' element={<Home />} />
+          <Route path='/product/:id' element={<Product/>} />
       </Routes>
     </div>
   );

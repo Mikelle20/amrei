@@ -52,10 +52,11 @@ const ResponsiveAppBar = (props) => {
                 fontWeight: 700,
                 color: 'inherit',
                 textDecoration: 'none',
-                className: 'navTitle'
+                className: 'navTitle',
+                ":hover": { textDecoration: 'none', color: 'white' }
                 }}
             >
-                AMREI 🌞
+                AMREI
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -107,10 +108,10 @@ const ResponsiveAppBar = (props) => {
                 letterSpacing: '.3rem',
                 color: 'white',
                 textDecoration: 'none',
-                ":hover": { textDecoration: 'none' }
+                ":hover": { textDecoration: 'none', color: 'white' }
                 }}
             >
-                <span className='navTitle'>AMREI</span>
+                AMREI
             </Typography>
             {window.location.pathname !== '/' && <MenuItem onClick={props.changeColors}>
                 {props.accessColors ? "🌜":"🌞"}
@@ -118,13 +119,15 @@ const ResponsiveAppBar = (props) => {
             
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {pages.map((page) => (
-                <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block' }}
-                >
-                    {page}
-                </Button>
+              <NavLink
+                to={page[1]}
+                className='navLinkFull'
+                key={page[0]}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <span>{page[0]}</span>
+              </NavLink>
                 ))}
             </Box>
 
