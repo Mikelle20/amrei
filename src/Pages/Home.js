@@ -2,14 +2,16 @@ import React from 'react'
 // import { usePalette } from 'react-palette'
 import CircleType from 'circletype'
 import { motion } from 'framer-motion'
-import MovingPart from '../Components/MovingPart'
+import Floater from '../Components/Floater'
 import { nanoid } from 'nanoid'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
 
   // const { data, loading, error } = usePalette('https://pbs.twimg.com/media/FN6-C7dXwAEyxmR?format=png&name=small')
   // console.log(data, error, loading)
 
+  const navigate = useNavigate()
 
   const variants = {
     rotate: {
@@ -35,9 +37,8 @@ function Home() {
 
   return (
     <div className='homeContainer'>
-      <MovingPart />
       {['♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️'].map(move => {
-        return <MovingPart key={nanoid()} symbol={move} />
+        return <Floater key={nanoid()} symbol={move} />
       })}
       <motion.div 
       variants={variants}
@@ -46,7 +47,7 @@ function Home() {
       id='shopProductsLogo'>
         S&#8902;H&#8902;O&#8902;P&#8902;&#8902;P&#8902;R&#8902;O&#8902;D&#8902;U&#8902;C&#8902;T&#8902;S&#8902;&#8902;
       </motion.div>
-        <motion.button whileTap={{ scale: 0.7 }} className='enterBtn'><img className='shoppingCart' alt='shopping cart' src={require('../assets/shopping-cart.png')}></img></motion.button>
+        <motion.button whileTap={{ scale: 0.7 }} onClick={() => navigate('/products')} className='enterBtn'><img className='shoppingCart' alt='shopping cart' src={require('../assets/shopping-cart.png')}></img></motion.button>
     </div>
     )
 }

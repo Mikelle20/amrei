@@ -30,11 +30,13 @@ function App() {
         toggleNav={toggleNav}
         />
       </nav>
-      
+      <div>
+        <img src={require('./assets/sailor.gif')} alt='sailor moon' className='sailorPixel'></img>
+      </div>
 
       <Routes>
           <Route path='/products' element={<Products accessColors={accessColors} navToggled={navToggled}/>} />
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<Home />} />
       </Routes>
     </div>
   );
