@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { calculateTotals, openCart } from '../features/cartSlice';
+import { calculateTotals, openCart, purchaseCart, clearCart } from '../features/cartSlice';
 
 const pages = [['Home', '/'],['Products', '/products']];
 
@@ -30,6 +30,7 @@ const ResponsiveAppBar = (props) => {
 
   const handleCartClick = () => {
     dispatch(openCart())
+    dispatch(purchaseCart(false))
     console.log(cartItems, amount, total)
   }
 
@@ -62,7 +63,7 @@ const ResponsiveAppBar = (props) => {
                 ":hover": { textDecoration: 'none', color: 'white' }
                 }}
             >
-                AMREI
+                <div className='titleContainer'>AMREI <img className='kirbyLogo' src={require('../assets/kirby-unscreen.gif')} alt='cupid kirby'></img></div>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
