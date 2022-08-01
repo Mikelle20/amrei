@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
@@ -8,12 +9,10 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector, useDispatch } from 'react-redux';
-import { calculateTotals, openCart, purchaseCart, clearCart } from '../features/cartSlice';
+import { calculateTotals, openCart, purchaseCart} from '../features/cartSlice';
 
 const pages = [['Home', '/'],['Products', '/products']];
 
@@ -21,7 +20,6 @@ const pages = [['Home', '/'],['Products', '/products']];
 const ResponsiveAppBar = (props) => {
   const { cartItems, amount, total } = useSelector(store => store.cart)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const dispatch = useDispatch()
 
   React.useEffect(() => {
@@ -150,28 +148,6 @@ const ResponsiveAppBar = (props) => {
                     </IconButton>
                 </Typography>
                 </Tooltip>
-                {/* <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-                >
-                {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                ))}
-                </Menu> */}
             </Box>
             </Toolbar>
         </Container>
@@ -180,47 +156,3 @@ const ResponsiveAppBar = (props) => {
   );
 };
 export default ResponsiveAppBar;
-
-
-// function Navbar(props) {
-//     const sunMoon = props.accessColors ? "🌜":"🌞"
-//     const colorsAccessed = props.accessColors ? " accessed" : ""
-//   return (
-//     <div>
-//         <nav id='navbar' className={"navbar center navbar-expand-lg navbar-light bg-light" + colorsAccessed}>
-//             <div className="container-fluid">
-//                 <a className="navbar-brand" href="/"><p className='navTitle'>{"amrei " + sunMoon}</p></a>
-//                 <button className="navbar-toggler" onClick={props.toggleNav} type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-//                 <span className="navbar-toggler-icon"></span>
-//                 </button>
-//                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
-//                     <ul className="navbar-nav">
-//                         <li className="nav-item">
-//                         <Link className="nav-link" to="/Home"><p>Home</p></Link> 
-//                         </li>
-//                         <li className='nav-item'>
-//                             <Link className="nav-link" to="/Products"><p>Products</p></Link>
-//                         </li>
-//                         <li>
-                            // <div 
-                            //     className="toggler" 
-                            // >
-                            //     <h5 className="toggler--label">🌞</h5>
-                            //     <div 
-                            //         className="toggler--slider"
-                            //         onClick={props.changeColors}
-                            //     >
-                            //         <div className="toggler--slider--circle"></div>
-                            //     </div>
-                            //     <h5 className="toggler--label">🌜</h5>
-                            // </div>
-//                         </li>
-//                     </ul>
-//                 </div>
-//             </div>
-//         </nav>
-//     </div>
-//   )
-// }
-
-// export default Navbar

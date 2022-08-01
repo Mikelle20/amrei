@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Product from '../Components/Product'
 import { productsData } from '../DummyData/ProductsData'
 import { setModal } from '../features/productModalSlice'
-import {setToggle } from '../features/productModalSlice'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import ProductModal from '../Components/ProductModal'
 
 function Products(props) {
@@ -12,13 +11,6 @@ function Products(props) {
   const [toggle, setToggle] = React.useState(false)
   const dispatch = useDispatch()
   const { open } = useSelector(store => store.cart)
-  // const { product } = useSelector(store => store.productModal)
-
-  const variants = {
-    scaleIn: {
-      scale: 1.0
-    }
-  }
 
 
   const handleClick = (product) => {

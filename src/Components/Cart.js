@@ -1,5 +1,4 @@
 import React from 'react'
-import Confetti from 'react-confetti'
 import { useSelector, useDispatch } from 'react-redux'
 import { motion } from 'framer-motion'
 import CartItem from './CartItem'

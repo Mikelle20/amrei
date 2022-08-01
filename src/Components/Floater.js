@@ -2,16 +2,8 @@ import React from 'react'
 import { useSpring, animated } from 'react-spring'
 
 function Floater (props) {
-  const styles = useSpring({
-    loop: true,
-    to: { x: 300}, 
-    from: { x: 0 },
-    config: {
-        duration: 5000
-    }
-})
 
-const [moving, api] = useSpring({
+const moving = useSpring({
     to: async (next, cancel) => {
         let coors = [[(Math.random() * (window.innerWidth -  32)) / 2, (Math.random() * (window.innerHeight - document.getElementById('navbar').offsetHeight)) / 2]]
         
@@ -22,7 +14,7 @@ const [moving, api] = useSpring({
         }
     },
     from: { x: 0, y: 0 }
-}, [])
+})
   return (
     <animated.div style={moving}><span className='floater'>{props.symbol}</span></animated.div>
   )
