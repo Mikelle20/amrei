@@ -67,7 +67,7 @@ const ResponsiveAppBar = (props) => {
                 ":hover": { textDecoration: 'none', color: 'white' }
                 }}
             >
-                <div className='titleFullContainer'>AMREI <img className='kirbyLogo' src={require('../assets/kirby-unscreen.gif')} alt='cupid kirby'></img></div>
+                <div className='titleFullContainer' style={{ justifyContent: window.location.pathname === '/' ? 'center' : 'flex-end'}}>AMREI <img className='kirbyLogo' src={require('../assets/kirby-unscreen.gif')} alt='cupid kirby'></img></div>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
