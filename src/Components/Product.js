@@ -8,7 +8,7 @@ function Product(props) {
         {show && <img id={props.product.title} className='' src={props.product.img} alt={props.product.title}/>}
          {show === false && <span className='item-text' title={props.product.title}>
             <p>{props.product.title}</p>
-            <p>{props.product.price}</p>
+            <p>${props.product.price.toFixed(2)}</p>
           </span>}
     </motion.div>
   )

@@ -5,10 +5,14 @@ import Products from './Pages/Products';
 import React from "react"
 import Home from './Pages/Home';
 import Product from './Pages/Product';
+import { useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
+import Cart from './Components/Cart';
 
 function App() {
   const [accessColors, setAccessColors] = React.useState(false)
   const [navToggled, setNavToggled] = React.useState(false)
+  const { open } = useSelector(store => store.cart)
 
   function toggleNav(){
     setNavToggled(prevState => !prevState)
@@ -31,6 +35,9 @@ function App() {
         toggleNav={toggleNav}
         />
       </nav>
+      <AnimatePresence>
+          {open && <Cart/>}  
+      </AnimatePresence>
       <div>
         <img src={require('./assets/sailor.gif')} alt='sailor moon' className='sailorPixel'></img>
       </div>

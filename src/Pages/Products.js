@@ -11,7 +11,8 @@ function Products(props) {
   const accessToggled = props.accessColors ? "access-container" : ""
   const [toggle, setToggle] = React.useState(false)
   const dispatch = useDispatch()
-  const { product } = useSelector(store => store.productModal)
+  const { open } = useSelector(store => store.cart)
+  // const { product } = useSelector(store => store.productModal)
 
   const variants = {
     scaleIn: {
@@ -22,7 +23,11 @@ function Products(props) {
 
   const handleClick = (product) => {
     dispatch(setModal(product))
-    setToggle(prev => !prev)
+    setToggle(true)
+  }
+
+  const handleSubmit = () => {
+    setToggle(false)
   }
 
   const productElements = productsData.map(product => {
@@ -37,15 +42,11 @@ function Products(props) {
   })
 
   return (
-    <main className='transparent'>
-        <AnimatePresence>{ toggle && <ProductModal/>}</AnimatePresence>
+    <main className={`transparent  ${toggle || open === true ? 'transparentBlur' : ''}`}>
+        <AnimatePresence>{ (toggle && open === false) && <ProductModal handleClick={handleSubmit}/>}</AnimatePresence>
         <div className={"product-container " + accessToggled}>
           {productElements}
-          <AnimatePresence>
-            {/* {toggle && <motion.div initial={{ scale: 0.0 }} exit={{ scale: 0.0 }} variants={variants} animate='scaleIn'>{product.title}</motion.div>} */}
-          </AnimatePresence>
         </div>
-
     </main>
   )
 }

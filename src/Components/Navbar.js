@@ -12,27 +12,33 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { useSelector, useDispatch } from 'react-redux';
+import { calculateTotals, openCart } from '../features/cartSlice';
 
 const pages = [['Home', '/'],['Products', '/products']];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
 
 const ResponsiveAppBar = (props) => {
+  const { cartItems, amount, total } = useSelector(store => store.cart)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch(calculateTotals())
+  }, [cartItems])
+
+  const handleCartClick = () => {
+    dispatch(openCart())
+    console.log(cartItems, amount, total)
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
 
   return (
@@ -111,7 +117,7 @@ const ResponsiveAppBar = (props) => {
                 ":hover": { textDecoration: 'none', color: 'white' }
                 }}
             >
-                AMREI
+                <div className='titleContainer'>AMREI <img className='kirbyLogo' src={require('../assets/kirby-unscreen.gif')} alt='cupid kirby'></img></div>
             </Typography>
             {window.location.pathname !== '/' && <MenuItem onClick={props.changeColors}>
                 {props.accessColors ? "🌜":"🌞"}
@@ -133,11 +139,17 @@ const ResponsiveAppBar = (props) => {
 
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open Cart">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <img className='cartButton' src={require('../assets/shopping-cart-light.png')} alt='shopping cart'></img>
-                </IconButton>
+                <Typography
+                >
+                    <IconButton id='cartIcon' onClick={handleCartClick} sx={{ p: 0 }}>
+                        <div className='cartIcon'>
+                            <div className='cartCount'>{amount}</div>
+                            <img className='cartButton' src={require('../assets/shopping-cart-light.png')} alt='shopping cart'></img>
+                        </div>
+                    </IconButton>
+                </Typography>
                 </Tooltip>
-                <Menu
+                {/* <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
@@ -158,7 +170,7 @@ const ResponsiveAppBar = (props) => {
                     <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
                 ))}
-                </Menu>
+                </Menu> */}
             </Box>
             </Toolbar>
         </Container>

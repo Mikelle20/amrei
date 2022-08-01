@@ -12,6 +12,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "circletype": "^2.3.0",
+    "complementary-colors": "^1.0.6",
     "framer-motion": "^6.5.1",
     "nanoid": "^4.0.0",
     "nodemon": "^2.0.15",
