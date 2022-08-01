@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { calculateTotals, openCart, purchaseCart} from '../features/cartSlice';
+import { setAccessed } from '../features/productModalSlice'
 
 const pages = [['Home', '/'],['Products', '/products']];
 
@@ -30,6 +31,11 @@ const ResponsiveAppBar = (props) => {
     dispatch(openCart())
     dispatch(purchaseCart(false))
     console.log(cartItems, amount, total)
+  }
+
+  const handleColors = () => {
+    dispatch(setAccessed())
+    props.changeColors()
   }
 
   const handleOpenNavMenu = (event) => {
@@ -118,7 +124,7 @@ const ResponsiveAppBar = (props) => {
             >
                 <div className='titleContainer'>AMREI <img className='kirbyLogo' src={require('../assets/kirby-unscreen.gif')} alt='cupid kirby'></img></div>
             </Typography>
-            {window.location.pathname !== '/' && <MenuItem onClick={props.changeColors}>
+            {window.location.pathname !== '/' && <MenuItem onClick={handleColors}>
                 {props.accessColors ? "🌜":"🌞"}
             </MenuItem>}
             

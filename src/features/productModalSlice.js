@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     toggle: false,
+    accessed: false,
     product: {
 
     }
@@ -16,9 +17,12 @@ const productModalSlice = createSlice({
         },
         setToggle: (state, { payload }) => {
             state.toggle = payload
+        },
+        setAccessed: (state) => {
+            state.accessed = !state.accessed
         }
     }
 })
 
-export const { setModal, setToggle } = productModalSlice.actions
+export const { setModal, setToggle, setAccessed } = productModalSlice.actions
 export default productModalSlice.reducer

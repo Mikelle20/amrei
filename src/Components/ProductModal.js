@@ -6,7 +6,7 @@ import complementaryColors from 'complementary-colors'
 import { addItem } from '../features/cartSlice'
 
 function ProductModal (props) {
-    const { product } = useSelector(store => store.productModal)
+    const { product, accessed } = useSelector(store => store.productModal)
     const { cartItems } = useSelector(store => store.cart)
     const dispatch = useDispatch()
     const element = document.getElementById(product.id)
@@ -59,8 +59,8 @@ function ProductModal (props) {
     id='modal'
     className='productModal'>
         <img className='modalImg' src={product.img} style={{ width: '20rem' }} alt={product.title} />
-        <div className='modalTitle'>{product.title}</div>
-        <div className='modalPrice'>${product.price.toFixed(2)}</div>
+        <div className='modalTitle' style={{ color: accessed === true ? 'white' : '' }}>{product.title}</div>
+        <div className='modalPrice' style={{ color: accessed === true ? 'white' : '' }}>${product.price.toFixed(2)}</div>
         <div className='modalBtnContainer'>
         <motion.button whileTap={{ scale: 0.8 }} name='closeModal' onClick={handleSubmit} className='addCartBtn'>Close</motion.button>
             <div className='modalCountContainer'>
