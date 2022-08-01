@@ -28,7 +28,7 @@ function Cart () {
         }
     }
   return (
-    <motion.div initial={{ y: 0, x: 0, scale: 0.0 }} variants={variants} animate='scaleIn' exit={{ y: window.innerHeight, transition: { duration: 0.5 } }} className='cart'>
+    <motion.div initial={{ y: 0, x: 0, scale: 0.0 }} variants={variants} animate='scaleIn' exit={{ y: window.innerHeight, transition: { duration: 0.5 } }} className={purchased ? 'purchasedCart' : 'cart'}>
         {purchased ? <div className='thankYou'>THANK YOU!</div> : <><div className='cartHeader'>YOUR BAG</div>
         {cartResults.length === 0 ? <span className='empty'>EMPTY</span> : cartResults}
         <div className='totalContainer'>

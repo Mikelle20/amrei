@@ -1,17 +1,15 @@
 import React from 'react'
-// import { usePalette } from 'react-palette'
 import CircleType from 'circletype'
 import { motion } from 'framer-motion'
 import Floater from '../Components/Floater'
 import { nanoid } from 'nanoid'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 function Home() {
 
-  // const { data, loading, error } = usePalette('https://pbs.twimg.com/media/FN6-C7dXwAEyxmR?format=png&name=small')
-  // console.log(data, error, loading)
-
   const navigate = useNavigate()
+  const { purchased } = useSelector(store => store.cart)
 
   const variants = {
     rotate: {
@@ -34,12 +32,14 @@ function Home() {
     circle && circle.radius(circle.element.offsetWidth / 2 )
   })
 
+  const floaters = ['♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️'].map(move => {
+    return <Floater key={nanoid()} symbol={move} />
+  })
+
 
   return (
     <div className='homeContainer'>
-      {['♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️','♈️','♉️','♊️','♋️','♌️','♍️','♎️','♏️','♐️','♑️','♒️','♓️'].map(move => {
-        return <Floater key={nanoid()} symbol={move} />
-      })}
+      {purchased === false ? floaters : ''}
       <motion.div 
       variants={variants}
       animate='rotate'

@@ -3,8 +3,8 @@ export const productsData = [
       id: 1,
       title: "Strawberry Shortcake Camera",
        price: 22.00,
-       img: "https://pbs.twimg.com/media/FN6-C7dXwAEyxmR?format=png&name=small",
-       shape: "square",
+       img: "https://pbs.twimg.com/media/FN6-C47WUAAdAyV?format=png&name=small",
+       shape: "tall",
        amount: 0
 
 
@@ -68,7 +68,7 @@ export const productsData = [
         title: "Insta Camera 2004",
         price: 33.00,
         img: "https://pbs.twimg.com/media/FN69xWZX0AEYaXU?format=png&name=small",
-        shape: "square",
+        shape: "tall",
         amount: 0
  
      },

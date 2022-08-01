@@ -14,7 +14,7 @@ img{
 }
 
 .empty{
-	margin-top: 10px;
+	margin-top: 4rem;
 	font-size: large;
 	font-weight: 700;
 	letter-spacing: .2rem;
@@ -51,6 +51,13 @@ p{
 	justify-content: flex-end;
 }
 
+.titleFullContainer{
+	display: flex;
+	margin: 0px;
+	align-items: center;
+	justify-content: center;
+}
+
 .kirbyLogo{
 	max-width: 20%;
 }
@@ -82,6 +89,25 @@ p{
 
 .cart{
 	position: absolute;
+	top: 30%;
+	right: 7%;
+	/* transform: translate(50%, 100%); */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 10;
+	width: 85%;
+	height: 20rem;
+	overflow-y: scroll;
+	padding: 1rem 2rem 2rem 2rem;
+	background-color: #B28DC3;
+	color: white;
+	border: 5px solid black;
+	border-radius: 20px;
+}
+
+.purchasedCart{
+	position: absolute;
 	top: 40%;
 	right: 7%;
 	/* transform: translate(50%, 100%); */
@@ -90,15 +116,24 @@ p{
 	align-items: center;
 	z-index: 10;
 	width: 85%;
+	height: 20rem;
+	overflow-y: scroll;
 	padding: 1rem 2rem 2rem 2rem;
 	background-color: #B28DC3;
 	color: white;
 	border: 5px solid black;
 	border-radius: 20px;
+	justify-content: center;
 }
 
 @media only screen and (min-width: 600px ) {
 	.cart{
+		width: 50%;
+		right: 25%;
+		transform: translate(50%, -50%);
+	}
+
+	.purchasedCart{
 		width: 50%;
 		right: 25%;
 		transform: translate(50%, -50%);
@@ -256,8 +291,6 @@ nav.accessed p{
 	right: 0;
 	z-index: 11;
 	margin: 10px 10px;
-
-	/* background-color: red; */
 }
 
 .cartButton{
@@ -270,7 +303,6 @@ nav.accessed p{
   	grid-template-columns: repeat(auto-fit, minmax(125px, 2fr));
 	grid-auto-rows: auto;
 	padding:0px;
-	/* margin: 72px 0px 0px 0px; */
 	grid-gap: 0px;
 	justify-content: center;
 	grid-auto-flow: dense;
@@ -286,7 +318,6 @@ nav.accessed p{
 .item-text{
 	width: 125px;
 	text-align: center;
-	/* position: absolute; */
 	z-index: 10;
 	opacity: 0;
 	background-color: transparent;
@@ -303,12 +334,7 @@ nav.accessed p{
 
 .item:hover > .item-text{
 	opacity: 1;
-	/* position: sticky; */
 }
-
-/* .item:hover > img{
-	opacity: 0;
-} */
 
 .item:hover{
 	border: 1px solid black;
@@ -352,7 +378,6 @@ nav.accessed p{
 	height: 100vh;
 	display: flex;
 	align-items: center;
-	background-color: red;
   }
 
   .productModal{
@@ -364,14 +389,15 @@ nav.accessed p{
 	align-items: center;
 	justify-content: center;
 	padding: 20px;
+	margin-top: -5%;
 	border: 5px solid black;
 	border-radius: 20px;
 	z-index: 10;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (max-width: 600px) {
 	.productModal{
-		width: 40%;
+		width: 80%;
 	}
   }
 

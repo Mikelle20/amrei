@@ -58,7 +58,7 @@ function ProductModal (props) {
     animate='scaleIn'
     id='modal'
     className='productModal'>
-        <img className='modalImg' src={product.img} alt={product.title} />
+        <img className='modalImg' src={product.img} style={{ width: '20rem' }} alt={product.title} />
         <div className='modalTitle'>{product.title}</div>
         <div className='modalPrice'>${product.price.toFixed(2)}</div>
         <div className='modalBtnContainer'>
