@@ -544,9 +544,10 @@ nav.accessed p{
   }
 
   .enterBtn{
-	font-size: xx-large;
-	width: 3rem;
-	font-weight: bolder;
+	font-size: large;
+	width: fit-content;
+	font-weight: bold;
+	letter-spacing: .2rem;
 	z-index: 9;
 	color: black;
 	position: absolute;

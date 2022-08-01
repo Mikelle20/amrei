@@ -47,7 +47,7 @@ function Home() {
       id='shopProductsLogo'>
         S&#8902;H&#8902;O&#8902;P&#8902;&#8902;P&#8902;R&#8902;O&#8902;D&#8902;U&#8902;C&#8902;T&#8902;S&#8902;&#8902;
       </motion.div>
-        <motion.button whileTap={{ scale: 0.7 }} onClick={() => navigate('/products')} className='enterBtn'><img className='shoppingCart' alt='shopping cart' src={require('../assets/shopping-cart.png')}></img></motion.button>
+        <motion.button whileTap={{ scale: 0.7 }} onClick={() => navigate('/products')} className='enterBtn'>ENTER</motion.button>
     </div>
     )
 }
