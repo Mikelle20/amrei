@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Product from '../Components/Product'
 import { productsData } from '../DummyData/ProductsData'
 import { setModal } from '../features/productModalSlice'
+import { openCart, purchaseCart } from '../features/cartSlice'
 import { AnimatePresence } from 'framer-motion'
 import ProductModal from '../Components/ProductModal'
 
@@ -10,7 +11,7 @@ function Products(props) {
   const accessToggled = props.accessColors ? "access-container" : ""
   const [toggle, setToggle] = React.useState(false)
   const dispatch = useDispatch()
-  const { open } = useSelector(store => store.cart)
+  const { open, purchased } = useSelector(store => store.cart)
 
 
   const handleClick = (product) => {
@@ -20,6 +21,11 @@ function Products(props) {
 
   const handleSubmit = () => {
     setToggle(false)
+  }
+
+  const closeCart = () => {
+    dispatch(openCart())
+    purchased === true && dispatch(purchaseCart(false))
   }
 
   const productElements = productsData.map(product => {
@@ -34,7 +40,7 @@ function Products(props) {
   })
 
   return (
-    <main className={`transparent  ${toggle || open === true ? 'transparentBlur' : ''}`}>
+    <main onClick={open === true && closeCart} className={`transparent  ${open === true ? 'transparentBlur' : ''}`}>
         <AnimatePresence>{ (toggle && open === false) && <ProductModal handleClick={handleSubmit}/>}</AnimatePresence>
         <div className={"product-container " + accessToggled}>
           {productElements}

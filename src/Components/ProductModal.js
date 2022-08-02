@@ -38,7 +38,10 @@ function ProductModal (props) {
         scaleIn: {
           scale: 1.0,
           x: 0,
-          y: 0
+          y: 0,
+          transition: {
+                duration: 0.3
+            }   
         }
       }
   return (
@@ -52,7 +55,8 @@ function ProductModal (props) {
     exit={{
         scale: 0.0,
         x: ((rect.x + (rect.width / 2)) - (window.innerWidth / 2)),
-        y: ((rect.y + (rect.height / 2)) - (window.innerHeight / 2))
+        y: ((rect.y + (rect.height / 2)) - (window.innerHeight / 2)),
+        transition: { duration: 0.3 }
     }}
     variants={variants}
     animate='scaleIn'
@@ -62,15 +66,15 @@ function ProductModal (props) {
         <div className='modalTitle' style={{ color: accessed === true ? 'white' : '' }}>{product.title}</div>
         <div className='modalPrice' style={{ color: accessed === true ? 'white' : '' }}>${product.price.toFixed(2)}</div>
         <div className='modalBtnContainer'>
-        <motion.button whileTap={{ scale: 0.8 }} name='closeModal' onClick={handleSubmit} className='addCartBtn'>Close</motion.button>
+        <motion.button whileTap={{ scale: 0.8 }} style={{ backgroundColor: `rgb(${complement.r}, ${complement.g}, ${complement.b})` }} name='closeModal' onClick={handleSubmit} className='addCartBtn'>Close</motion.button>
             <div className='modalCountContainer'>
                 <motion.button name='min' onClick={handleClick} whileTap={{ scale: 0.8 }} className='modalBtn min'>-</motion.button>
-                <div className='modalCount' style={{ backgroundColor: `rgb(${complement.r}, ${complement.g}, ${complement.b})` }}>
+                <div className='modalCount' style={{ backgroundColor: `rgb(${complement.r}, ${complement.g}, ${complement.b})`, color: 'white' }}>
                     {count}
                 </div>
                 <motion.button name='add' onClick={handleClick} whileTap={{ scale: 0.9 }} className='modalBtn add'>+</motion.button>
             </div>
-            <motion.button whileTap={{ scale: 0.8 }} name='addToCart' onClick={handleSubmit} className='addCartBtn'>Add to Cart</motion.button>
+            <motion.button whileTap={{ scale: 0.8 }} style={{ backgroundColor: `rgb(${complement.r}, ${complement.g}, ${complement.b})` }} name='addToCart' onClick={handleSubmit} className='addCartBtn'>Add to Cart</motion.button>
         </div>
     </motion.div>
   )
