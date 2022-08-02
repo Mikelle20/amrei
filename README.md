@@ -5,7 +5,8 @@ https://amreishops.netlify.app/
 
 The shop is completely frontend, meaning no purchases are actually made.
 
-## Front End: 
+# Technologies
+ #### Front End: 
  - React/Redux
  - HTML
  - CSS
